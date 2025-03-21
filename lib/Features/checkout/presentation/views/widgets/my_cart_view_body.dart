@@ -1,10 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:payment_app/Features/checkout/presentation/views/widgets/cart_info_item.dart';
 import 'package:payment_app/Features/checkout/presentation/views/widgets/payment_methods_list_view.dart';
 import 'package:payment_app/Features/checkout/presentation/views/widgets/total_price_widget.dart';
 import 'package:payment_app/core/widgets/custom_button.dart';
-
 
 class MyCartViewBody extends StatelessWidget {
   const MyCartViewBody({super.key});
@@ -15,40 +13,17 @@ class MyCartViewBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
-          const SizedBox(
-            height: 18,
-          ),
+          const SizedBox(height: 18),
           Expanded(child: Image.asset('assets/images/basket_image.png')),
-          const SizedBox(
-            height: 25,
-          ),
-          const OrderInfoItem(
-            title: 'Order Subtotal',
-            value: r'42.97$',
-          ),
-          const SizedBox(
-            height: 3,
-          ),
-          const OrderInfoItem(
-            title: 'Discount',
-            value: r'0$',
-          ),
-          const SizedBox(
-            height: 3,
-          ),
-          const OrderInfoItem(
-            title: 'Shipping',
-            value: r'8$',
-          ),
-          const Divider(
-            thickness: 2,
-            height: 34,
-            color: Color(0xffC7C7C7),
-          ),
+          const SizedBox(height: 25),
+          const OrderInfoItem(title: 'Order Subtotal', value: r'42.97$'),
+          const SizedBox(height: 3),
+          const OrderInfoItem(title: 'Discount', value: r'0$'),
+          const SizedBox(height: 3),
+          const OrderInfoItem(title: 'Shipping', value: r'8$'),
+          const Divider(thickness: 2, height: 34, color: Color(0xffC7C7C7)),
           const TotalPrice(title: 'Total', value: r'$50.97'),
-          const SizedBox(
-            height: 16,
-          ),
+          const SizedBox(height: 16),
           CustomButton(
             text: 'Complete Payment',
             onTap: () {
@@ -57,17 +32,17 @@ class MyCartViewBody extends StatelessWidget {
               // }));
 
               showModalBottomSheet(
-                  context: context,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16)),
-                  builder: (context) {
-                    return const PaymentMethodsBottomSheet();
-                  });
+                context: context,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                builder: (context) {
+                  return const PaymentMethodsBottomSheet();
+                },
+              );
             },
           ),
-          const SizedBox(
-            height: 12,
-          ),
+          const SizedBox(height: 12),
         ],
       ),
     );
@@ -84,13 +59,9 @@ class PaymentMethodsBottomSheet extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(
-            height: 16,
-          ),
+          SizedBox(height: 16),
           PaymentMethodsListView(),
-          SizedBox(
-            height: 32,
-          ),
+          SizedBox(height: 32),
           CustomButton(text: 'Continue'),
         ],
       ),

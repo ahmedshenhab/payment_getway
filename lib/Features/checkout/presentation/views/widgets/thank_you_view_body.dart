@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:payment_app/Features/checkout/presentation/views/widgets/custom_check_icon.dart';
 import 'package:payment_app/Features/checkout/presentation/views/widgets/custom_dashed_line.dart';
 import 'package:payment_app/Features/checkout/presentation/views/widgets/thank_you_card.dart';
+
 class ThankYouViewBody extends StatelessWidget {
   const ThankYouViewBody({super.key});
 
@@ -21,17 +21,15 @@ class ThankYouViewBody extends StatelessWidget {
             child: const CustomDashedLine(),
           ),
           Positioned(
-              left: -20,
-              bottom: MediaQuery.sizeOf(context).height * .2,
-              child: const CircleAvatar(
-                backgroundColor: Colors.white,
-              )),
+            left: -20,
+            bottom: MediaQuery.sizeOf(context).height * .2,
+            child: const CircleAvatar(backgroundColor: Colors.white),
+          ),
           Positioned(
-              right: -20,
-              bottom: MediaQuery.sizeOf(context).height * .2,
-              child: const CircleAvatar(
-                backgroundColor: Colors.white,
-              )),
+            right: -20,
+            bottom: MediaQuery.sizeOf(context).height * .2,
+            child: const CircleAvatar(backgroundColor: Colors.white),
+          ),
           const Positioned(
             top: -50,
             left: 0,
