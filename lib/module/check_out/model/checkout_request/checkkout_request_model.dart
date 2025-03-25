@@ -5,7 +5,7 @@ class CheckkoutRequestModel {
   String amount;
   CheckkoutRequestModel({required this.currency, required this.amount});
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return <String, dynamic>{'currency': currency, 'amount': amount};
   }
 }

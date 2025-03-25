@@ -3,49 +3,72 @@ import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioHelper {
-  static Dio? dio;
+  static Dio? _dio;
 
-  DioHelper._();
+  DioHelper._(); 
 
-  static Dio get init {
-    {
-      if (dio == null) {
-        dio = Dio(
-          BaseOptions(
-            receiveDataWhenStatusError: true,
-            connectTimeout: const Duration(seconds: 30),
-            receiveTimeout: const Duration(seconds: 30),
-            headers: {
-              'Accept': 'application/json',
+  static Dio get instance {
+    if (_dio == null) {
+      _dio = Dio(
+        BaseOptions(
+          receiveDataWhenStatusError: true,
+          connectTimeout: const Duration(seconds: 30),
+          receiveTimeout: const Duration(seconds: 30),
+          headers: {'Accept': 'application/json'},
+          baseUrl: '',
+        ),
+      );
 
-              // 'Authorization':
-              //     'Bearer ${  SecureStorage.instance.read( SecureConstant.keyUserToken)}',
+      _dio!.interceptors.add(PrettyDioLogger());
 
-              // 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZjYXJlLmludGVncmF0aW9uMjUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzQxNjk5ODY5LCJleHAiOjE3NDE3ODYyNjksIm5iZiI6MTc0MTY5OTg2OSwianRpIjoiSktOTUdUTDhkM1NjMW9QRSIsInN1YiI6IjMzNjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0._tX8uRHcE5UUvlLhwku8GPRIM5S8V_72ipSquQdh12Y',
-            },
-
-            baseUrl: '',
-          ),
-        );
-
-        dio?.interceptors.add(
-          PrettyDioLogger(
-            requestHeader: true,
-            requestBody: true,
-            responseBody: true,
-            responseHeader: true,
-            error: true,
-            compact: true,
-            maxWidth: 90,
-          ),
-        );
-
-        log('Dio initialized successfully');
-
-        return dio!;
-      }
-
-      return dio!;
+      log('✅ Dio initialized & interceptor added!');
     }
+
+    return _dio!;
   }
 }
+
+
+
+
+
+// here the instance intialized befor the start that mean no need to inject it  
+
+
+// class DioHelper {
+//   static final DioHelper _instance = DioHelper._internal();
+//   late final Dio dio;
+
+//   factory DioHelper() {
+//     return _instance;
+//   }
+
+//   DioHelper._internal() {
+//     dio = Dio(
+//       BaseOptions(
+//         receiveDataWhenStatusError: true,
+//         connectTimeout: const Duration(seconds: 30),
+//         receiveTimeout: const Duration(seconds: 30),
+//         headers: {
+//           'Accept': 'application/json',
+//         },
+//       ),
+//     );
+
+//     dio.interceptors.add(
+//       PrettyDioLogger(
+//         requestHeader: true,
+//         requestBody: true,
+//         responseBody: true,
+//         responseHeader: true,
+//         error: true,
+//         compact: true,
+//         maxWidth: 90,
+//       ),
+//     );
+
+//     log('Dio initialized successfully');
+//   }
+
+//   static Dio get instance => _instance.dio;
+// }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../widgets/thank_you_card.dart';
+import 'thank_you_card.dart';
 import '../../../../../module/check_out/widgets/custom_check_icon.dart';
 import '../../../../../module/check_out/widgets/custom_dashed_line.dart';
 

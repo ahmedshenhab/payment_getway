@@ -1,10 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import '../../../thank_you_view.dart';
-import '../../../widgets/payment_methods_list_view.dart';
-import '../../../../../core/widgets/custom_button.dart';
-import '../../../../../module/check_out/widgets/custom_credit_card.dart';
+import 'package:payment_app/Features/checkout/thank_you_view.dart';
+import 'package:payment_app/Features/checkout/widgets/payment_methods_list_view.dart';
+import 'package:payment_app/core/widgets/custom_button.dart';
+import 'package:payment_app/module/check_out/widgets/custom_credit_card.dart';
 
 class PaymentDetailsViewBody extends StatefulWidget {
   const PaymentDetailsViewBody({super.key});

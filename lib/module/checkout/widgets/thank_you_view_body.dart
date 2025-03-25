@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../widgets/thank_you_card.dart';
-import '../../../../../module/check_out/widgets/custom_check_icon.dart';
-import '../../../../../module/check_out/widgets/custom_dashed_line.dart';
+import 'package:payment_app/module/check_out/widgets/custom_check_icon.dart';
+import 'package:payment_app/module/check_out/widgets/custom_dashed_line.dart';
+import 'package:payment_app/module/checkout/widgets/thank_you_card.dart';
 
 class ThankYouViewBody extends StatelessWidget {
   const ThankYouViewBody({super.key});

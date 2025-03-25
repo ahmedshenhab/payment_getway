@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import '../../../thank_you_view.dart';
-import '../../../widgets/payment_methods_list_view.dart';
+import '../thank_you_view.dart';
+import 'payment_methods_list_view.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../module/check_out/widgets/custom_credit_card.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/widgets/cutom_app_bar.dart';
 import 'widgets/my_cart_view_body.dart';
+import '../../core/widgets/cutom_app_bar.dart';
 
 class MyCartView extends StatelessWidget {
   const MyCartView({super.key});
