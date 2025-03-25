@@ -1,9 +1,9 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:payment_app/module/check_out/thank_you_view.dart';
 import 'package:payment_app/module/check_out/widgets/custom_credit_card.dart';
-import '../../../Features/checkout/thank_you_view.dart';
-import '../../../Features/checkout/widgets/payment_methods_list_view.dart';
+import 'package:payment_app/module/check_out/widgets/payment_methods_list_view.dart';
 import '../../../core/widgets/custom_button.dart';
 
 class PaymentDetailsViewBody extends StatefulWidget {

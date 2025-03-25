@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:payment_app/module/check_out/my_cart_view.dart';
 import 'core/api_keys.dart';
 import 'core/di/di.dart';
-import 'Features/checkout/my_cart_view.dart';
 
 void main() async {
   setupGetIt();

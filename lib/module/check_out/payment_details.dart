@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../Features/checkout/widgets/payment_details_view_body.dart';
+import 'package:payment_app/module/check_out/widgets/payment_details_view_body.dart';
 import '../../core/widgets/cutom_app_bar.dart';
 
 class PaymentDetailsView extends StatelessWidget {
