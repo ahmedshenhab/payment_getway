@@ -6,6 +6,7 @@ AppBar buildAppBar({final String? title}) {
   return AppBar(
     leading: Center(child: SvgPicture.asset('assets/images/arrow.svg')),
     elevation: 0,
+    actions: [],
     backgroundColor: Colors.transparent,
     centerTitle: true,
     title: Text(

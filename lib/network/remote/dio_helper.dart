@@ -5,7 +5,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 class DioHelper {
   static Dio? _dio;
 
-  DioHelper._(); 
+  DioHelper._();
 
   static Dio get instance {
     if (_dio == null) {
@@ -28,12 +28,7 @@ class DioHelper {
   }
 }
 
-
-
-
-
-// here the instance intialized befor the start that mean no need to inject it  
-
+// here the instance intialized befor the start that mean no need to inject it
 
 // class DioHelper {
 //   static final DioHelper _instance = DioHelper._internal();

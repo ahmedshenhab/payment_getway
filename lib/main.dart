@@ -1,12 +1,26 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:payment_app/core/helpers/observer/bloc_observer.dart';
+import 'package:payment_app/core/secure_storage/secure_storage.dart';
 import 'package:payment_app/module/check_out/my_cart_view.dart';
 import 'core/api_keys.dart';
 import 'core/di/di.dart';
 // ahmed shenhab
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   setupGetIt();
+  // craeteObserver;
+
+  // await SecureStorage.write('name', 'ahmed shenhab');
+  // final x =await  SecureStorage.read('customer_id');
+  // log(x.toString());
+
+  Bloc.observer = MyBlocObserver();
 
   Stripe.publishableKey = ApiKeys.publishKey;
   runApp(const CheckoutApp());
@@ -23,30 +37,3 @@ class CheckoutApp extends StatelessWidget {
     );
   }
 }
-
-// Future<void> initPaymentSheet() async {
-//   try {
-//     // 1. create payment intent on the server
-//     final data = await _createTestPaymentSheet();
-
-//     // 2. initialize the payment sheet
-//     await Stripe.instance.initPaymentSheet(
-//       paymentSheetParameters: SetupPaymentSheetParameters(
-
-//         // Main params
-//         merchantDisplayName: 'Flutter Stripe Store Demo',
-//         paymentIntentClientSecret: data['paymentIntent'],
-//         // Customer keys
-
-//       )
-//     );
-//     setState(() {
-//       _ready = true;
-//     });
-//   } catch (e) {
-//     ScaffoldMessenger.of(
-//       context,
-//     ).showSnackBar(SnackBar(content: Text('Error: $e')));
-//     rethrow;
-//   }
-// }

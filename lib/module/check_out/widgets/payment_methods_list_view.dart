@@ -22,6 +22,7 @@ class _PaymentMethodsListViewState extends State<PaymentMethodsListView> {
       child: ListView.builder(
         itemCount: paymentMethodsItems.length,
         scrollDirection: Axis.horizontal,
+
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),

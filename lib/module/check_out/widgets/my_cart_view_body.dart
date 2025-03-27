@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:payment_app/core/di/di.dart';
+import 'package:payment_app/core/utils/stripe_service.dart';
+import 'package:payment_app/module/check_out/cubit/ckeck_out_cubit.dart';
+import 'package:payment_app/module/check_out/data/repo/repo_implementation.dart';
 import 'package:payment_app/module/check_out/widgets/cart_info_item.dart';
-import 'package:payment_app/module/check_out/widgets/payment_methods_list_view.dart';
+import 'package:payment_app/module/check_out/widgets/payment_methods_bottom_sheet.dart';
 import 'package:payment_app/module/check_out/widgets/total_price_widget.dart';
 import '../../../core/widgets/custom_button.dart';
 
@@ -24,6 +29,7 @@ class MyCartViewBody extends StatelessWidget {
           const Divider(thickness: 2, height: 34, color: Color(0xffC7C7C7)),
           const TotalPrice(title: 'Total', value: r'$50.97'),
           const SizedBox(height: 16),
+         
           CustomButton(
             text: 'Complete Payment',
             onTap: () {
@@ -37,32 +43,17 @@ class MyCartViewBody extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                 ),
                 builder: (context) {
-                  return const PaymentMethodsBottomSheet();
+                  return BlocProvider<CheckOutCubit>(
+                    create:
+                        (context) =>
+                            CheckOutCubit(repo: getIt<RepoImplementation>()),
+                    child: const PaymentMethodsBottomSheet(),
+                  );
                 },
               );
             },
           ),
           const SizedBox(height: 12),
-        ],
-      ),
-    );
-  }
-}
-
-class PaymentMethodsBottomSheet extends StatelessWidget {
-  const PaymentMethodsBottomSheet({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(16),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SizedBox(height: 16),
-          PaymentMethodsListView(),
-          SizedBox(height: 32),
-          CustomButton(text: 'Continue'),
         ],
       ),
     );
